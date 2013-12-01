@@ -6,6 +6,8 @@
 #include <Psapi.h>
 #include <fstream>
 #include "TibiaInj.h"
+#include <thread>
+#include <string>
 
 using namespace std;
 
@@ -13,7 +15,7 @@ using namespace std;
 
 TibiaInj::TibiaInj()
 {
-	TestOutput();
+	TestOutput();	
 }
 
 TibiaInj::~TibiaInj()
@@ -26,12 +28,16 @@ void TibiaInj::TestOutput()
 	exp = getExp();
 	ofstream ostr;
 	ostr.open("C:\\Users\\Debug\\Desktop\\output.txt");
-	ostr << "New Attempt" << endl;
-	ostr << "Experience (exp): " << exp << endl;
+	ostr << "This round" << endl;
+	for (int i = 0; i < 30; i++)
+	{
+		ostr << "Experience (exp): " << *exp << endl;
+		Sleep(1000);
+	}
 	ostr.close();
 }
 
-int TibiaInj::getExp()
+int* TibiaInj::getExp()
 {
-	return * (int *)(0x03C2280 + 0x0400000);
+	return (int *)(0x03C2280 + TIBIA_BASE_ADDRESS);
 }

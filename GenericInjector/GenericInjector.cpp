@@ -66,7 +66,14 @@ BOOL InjectRemoteThread(DWORD ProcessID)
     WriteProcessMemory(RemoteProc, (LPVOID)MemAlloc, DLL_NAME, strlen(DLL_NAME)+1, NULL);
     CreateRemoteThread(RemoteProc, NULL, NULL, (LPTHREAD_START_ROUTINE)LoadLibAddress, (LPVOID)MemAlloc, NULL, NULL);
 
-    CloseHandle(RemoteProc);
-    VirtualFreeEx(RemoteProc, (LPVOID)MemAlloc, 0, MEM_RELEASE | MEM_DECOMMIT);
+	try
+	{
+		VirtualFreeEx(RemoteProc, (LPVOID)MemAlloc, 0, MEM_RELEASE | MEM_DECOMMIT);
+		CloseHandle(RemoteProc);
+	}
+	catch (exception ex)
+	{
+		cout << ex.what() << endl;
+	}
     return 1;
 }
