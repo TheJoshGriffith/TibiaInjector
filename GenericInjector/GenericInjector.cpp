@@ -58,14 +58,14 @@ int _tmain(int argc, _TCHAR* argv[])
 BOOL InjectRemoteThread(DWORD ProcessID)
 {
     HANDLE RemoteProc;
-    char buf[50]        =   {0};
+    //char buf[50]        =   {0};
     LPVOID MemAlloc;
     LPVOID LoadLibAddress;
 
     // Process ID does show correctly!
-    WCHAR id[100];
+    /*WCHAR id[100];
     StringCbPrintf(id, 100, L"%d", ProcessID); // id contains the process ID... is confirmed in comparing ID shown in tasklist and the messagebox.
-    MessageBox(NULL, id, L"Process ID", MB_ICONINFORMATION);
+    MessageBox(NULL, id, L"Process ID", MB_ICONINFORMATION);*/
     // Process ID does show correctly!
 
     if ( !ProcessID )

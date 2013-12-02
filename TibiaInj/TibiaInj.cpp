@@ -31,9 +31,14 @@ using namespace std;
 
 // Address of GoToX method: 41A6DA
 
+UINT gotoX = 0x557030;
+UINT gotoY = 0x557028;
+UINT gotoZ = 0x557004;
+
 TibiaInj::TibiaInj()
 {
-	TestOutput();	
+	TestOutput();
+	GoTo(32369, 32242, 6);
 }
 
 TibiaInj::~TibiaInj()
@@ -44,18 +49,46 @@ TibiaInj::~TibiaInj()
 void TibiaInj::TestOutput()
 {
 	exp = getExp();
+	int* oldexp = getExp();
 	ofstream ostr;
 	ostr.open("C:\\Users\\Debug\\Desktop\\output.txt");
-	ostr << "This round" << endl;
-	for (int i = 0; i < 30; i++)
-	{
-		ostr << "Experience (exp): " << *exp << endl;
-		Sleep(1000);
-	}
+	ostr << "Experience (exp): " << *exp << endl;
+	ostr << "CID             : " << *getCID() << endl;
 	ostr.close();
 }
 
 int* TibiaInj::getExp()
 {
 	return (int *)(0x03C2280 + TIBIA_BASE_ADDRESS);
+}
+
+int* TibiaInj::getCID()
+{
+	return (int *)(0x0557034 + TIBIA_BASE_ADDRESS);
+}
+
+int TibiaInj::getMyBLPos()
+{
+	for (int i = 0; i < BLMAX; i++)
+	{
+		if (* getCID() == * (int *)(BLSTART + TIBIA_BASE_ADDRESS + i * BLSIZE))
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+void TibiaInj::GoTo(int x, int y, int z)
+{
+	ofstream ostr;
+	ostr.open("C:\\Users\\Debug\\Desktop\\memread.txt");
+	int blPos = getMyBLPos();
+	int gotoAddress = BLSTART + blPos * BLSIZE + WALKINGOFFSET + TIBIA_BASE_ADDRESS;
+	ostr << gotoAddress << endl;
+	* (int *)(TIBIA_BASE_ADDRESS + gotoX) = x;
+	* (int *)(TIBIA_BASE_ADDRESS + gotoY) = y;
+	* (int *)(TIBIA_BASE_ADDRESS + gotoZ) = z;
+	* (int *)(gotoAddress) = 1;
+	ostr.close();
 }

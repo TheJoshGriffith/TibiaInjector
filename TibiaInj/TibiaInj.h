@@ -26,6 +26,22 @@
 #define TIBIA_BASE_ADDRESS 0x0400000
 #endif // !TIBIA_BASE_ADDRESS
 
+#ifndef BLSIZE
+#define BLSIZE 0xC0
+#endif
+
+#ifndef BLSTART
+#define BLSTART 0x005AD478
+#endif
+
+#ifndef BLMAX
+#define BLMAX 1400
+#endif
+
+#ifndef WALKINGOFFSET
+#define WALKINGOFFSET 0x050
+#endif
+
 using namespace std;
 
 class TibiaInj
@@ -37,8 +53,15 @@ public:
 	// Methods
 	TibiaInj();
 	~TibiaInj();
-	int* getExp();
 	void TestOutput();
+
+	// Getter Methods
+	int* getExp();
+	int* getCID();
+	int getMyBLPos();
+
+	// Setter Methods
+	void GoTo(int x, int y, int z);	
 
 private:
 	
