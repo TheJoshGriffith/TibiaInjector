@@ -26,14 +26,12 @@
 #include "TibiaInj.h"
 #include <string>
 #include "Core.h"
+#define v1022
+#include "Addresses.h"
 
 using namespace std;
 
 // Address of GoToX method: 41A6DA
-
-UINT gotoX = 0x557030;
-UINT gotoY = 0x557028;
-UINT gotoZ = 0x557004;
 
 TibiaInj::TibiaInj()
 {
@@ -83,7 +81,7 @@ int* TibiaInj::getExp()
 
 int* TibiaInj::getCID()
 {
-	return (int *)(0x0557034 + core.util.BaseAddress);
+	return (int *)(Addresses::CID + core.util.BaseAddress);
 }
 
 int TibiaInj::getMyBLPos()
@@ -102,8 +100,8 @@ void TibiaInj::GoTo(int x, int y, int z)
 {
 	int blPos = getMyBLPos();
 	int gotoAddress = BLSTART + blPos * BLSIZE + WALKINGOFFSET + core.util.BaseAddress;
-	* (int *)(core.util.BaseAddress + gotoX) = x;
-	* (int *)(core.util.BaseAddress + gotoY) = y;
-	* (int *)(core.util.BaseAddress + gotoZ) = z;
+	* (int *)(core.util.BaseAddress + Addresses::gotoX) = x;
+	* (int *)(core.util.BaseAddress + Addresses::gotoY) = y;
+	* (int *)(core.util.BaseAddress + Addresses::gotoZ) = z;
 	* (int *)(gotoAddress) = 1;
 }

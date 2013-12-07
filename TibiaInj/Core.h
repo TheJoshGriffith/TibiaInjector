@@ -4,6 +4,8 @@
 #include "BattleList.h"
 #include "Map.h"
 #include "Tile.h"
+#include "Player.h"
+#include "Addresses.h"
 
 
 class Core
@@ -14,5 +16,6 @@ public:
 	Util util;
 	BattleList battleList;
 	Map map;
+	Player player;
 };
 

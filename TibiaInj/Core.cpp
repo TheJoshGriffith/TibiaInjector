@@ -7,9 +7,11 @@ Core::Core(void)
 	util = Util();
 	battleList = BattleList(); 
 	map = Map();
+	player = Player();
 }
 
 
 Core::~Core(void)
 {
+
 }
