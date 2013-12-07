@@ -1,19 +1,22 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include "Core.h"
+#include "stdafx.h"
 #include "Tile.h"
 #include <vector>
+
+class Core;
 
 class Map
 {
 public:
-	Map(Core *core);
+	Map::Map(Core *);
+	Map::Map();
+	Map::~Map();
 	Tile GetPlayerTile();
 	Tile *(tiles[2016]);
 	std::vector<Tile*> GetTiles();
 private:
-	Core *core;
+	Core * Coar;
 };
-
 #endif

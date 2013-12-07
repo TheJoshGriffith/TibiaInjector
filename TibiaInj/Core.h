@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CORE_H
+#define CORE_H
 
 #include "Util.h"
 #include "BattleList.h"
@@ -11,11 +12,11 @@
 class Core
 {
 public:
-	Core(void);
-	~Core(void);
+	Core::Core(void);
+	Core::~Core(void);
 	Util util;
 	BattleList battleList;
-	Map *map;
-	Player *player;
+	Map map;
+	Player player;
 };
-
+#endif

@@ -1,23 +1,22 @@
-/*#ifndef PLAYERSTRUCTURE
+#ifndef PLAYERSTRUCTURE
 #define PLAYERSTRUCTURE
+// DO NOT INCLUDE CORE IN THIS FILE
+
+class Core;
+
 struct PlayerMem
 {
 	int cid;
 	int y, x, z;
 };
-#endif*/
-
-#ifndef PLAYER_H
-#define PLAYER_H
 
 class Player
 {
 public:
-	Player(Core *core);
-	~Player(void);
-	DWORD GetZ();
+	Player::Player(Core * coar);
+	Player::Player(void);
+	Player::~Player(void);
 private:
-	Core *core;
+	Core * core;
 };
-
 #endif

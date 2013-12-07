@@ -5,9 +5,9 @@
 Core::Core(void)
 {
 	util = Util();
-	battleList = BattleList(); 
-	map = new Map(this);
-	player = new Player(this);
+	battleList = BattleList();
+	map = Map(this);
+	player = Player(this);
 }
 
 

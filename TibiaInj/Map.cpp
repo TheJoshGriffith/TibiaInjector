@@ -6,9 +6,19 @@
 
 typedef Tile tileType[2016];
 
-Map::Map(Core *core)
+Map::Map(Core * core)
 {
-	this->core = core;
+	Coar = core;
+}
+
+Map::Map()
+{
+
+}
+
+Map::~Map()
+{
+
 }
 
 Tile Map::GetPlayerTile()
@@ -36,8 +46,5 @@ std::vector<Tile*> GetTiles()
 {
 	//TODO::
 	//Need a player class or something to retrieve the players Z location
-	
-	//HOW TO ACCESS PLAYER Z LOCATION
-	//this->core->player.GetZ();
 }
 

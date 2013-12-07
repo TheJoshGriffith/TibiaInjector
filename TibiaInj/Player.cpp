@@ -1,18 +1,19 @@
 #include "stdafx.h"
 #include "Player.h"
+#include "Core.h"
+#include <fstream>
 
-Player::Player(Core *core)
+Player::Player(Core * coar)
 {
-	this->core = core;
+	core = coar;
+}
+
+Player::Player(void)
+{
+
 }
 
 Player::~Player(void)
 {
 
-}
-
-DWORD Player::GetZ()
-{
-	//return *(DWORD*)SOMEADDRESS + core->getBaseAddress();
-	return 0;
 }
