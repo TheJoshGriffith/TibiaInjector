@@ -1,9 +1,9 @@
+#ifndef BLCreature
+#define BLCreature
 #include <string>
 #include <fstream>
 
-#ifndef BLCreature
-#define BLCreature
-	struct Creature
+struct Creature
 	{
 		int cid;
 		char name[32];
@@ -47,22 +47,26 @@
 		int guildMembersOnline; // 5+ gives the red lightning bolt
 		int var24;
 	};
-#endif
 
-#pragma once
+class Core;
+
 class BattleList
 {
 public:
 	// Constr
-	BattleList(void);
+	BattleList::BattleList(void);
+	BattleList::BattleList(Core * coar);
 
 	// Destr
-	~BattleList(void);
+	BattleList::~BattleList(void);
 
 	// Methods
 	void DumpBattleList(char* fileName);
 
 	// Variables
 	Creature *(battleList[1300]);
-};
 
+private:
+	Core * core;
+};
+#endif

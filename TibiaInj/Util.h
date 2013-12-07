@@ -1,4 +1,5 @@
-#pragma once
+#ifndef UTIL_H
+#define UTIL_H
 class Util
 {
 public:
@@ -7,4 +8,4 @@ public:
 	static DWORD getBaseAddress();
 	DWORD BaseAddress;
 };
-
+#endif

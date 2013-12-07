@@ -10,6 +10,11 @@ BattleList::BattleList(void)
 	* battleList = *(battleListType*)(0x5AD478 + 0x400000);
 }
 
+BattleList::BattleList(Core * coar)
+{
+	core = coar;
+}
+
 
 BattleList::~BattleList(void)
 {

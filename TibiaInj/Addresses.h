@@ -1,6 +1,9 @@
 #include <Windows.h>		
 
 #ifdef v1022
+
+#ifndef ADDRESSES
+#define ADDRESSES
 class Addresses
 {
 public:
@@ -10,5 +13,10 @@ public:
 	static const DWORD gotoX = 0x557030;
 	static const DWORD gotoY = 0x557028;
 	static const DWORD gotoZ = 0x557004;
+	static const DWORD walkingOffset = 0x050;
+	static const DWORD blsize = 0xC0;
+	static const DWORD blmax = 1300;
 };
+#endif
+
 #endif

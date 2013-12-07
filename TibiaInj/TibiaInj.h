@@ -55,11 +55,6 @@ public:
 
 	// Getter Methods
 	int* getExp();
-	int* getCID();
-	int getMyBLPos();
-
-	// Setter Methods
-	void GoTo(int x, int y, int z);	
 
 	// Class Instances
 	Core core;

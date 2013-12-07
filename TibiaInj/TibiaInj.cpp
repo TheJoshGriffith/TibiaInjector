@@ -38,7 +38,6 @@ TibiaInj::TibiaInj()
 	core = Core();
 	WriteDwdToFile("C:\\Users\\Debug\\Desktop\\baseAddress.txt", Util::getBaseAddress());
 	TestOutput();
-	GoTo(32369, 32242, 6);
 }
 
 TibiaInj::~TibiaInj()
@@ -69,7 +68,6 @@ void TibiaInj::TestOutput()
 	ofstream ostr;
 	ostr.open("C:\\Users\\Debug\\Desktop\\output.txt");
 	ostr << "Experience (exp): " << *exp << endl;
-	ostr << "CID             : " << *getCID() << endl;
 	//ostr << bl.battleList[0].name << endl;
 	ostr.close();
 }
@@ -77,31 +75,4 @@ void TibiaInj::TestOutput()
 int* TibiaInj::getExp()
 {
 	return (int *)(0x03C2280 + core.util.BaseAddress);
-}
-
-int* TibiaInj::getCID()
-{
-	return (int *)(Addresses::CID + core.util.BaseAddress);
-}
-
-int TibiaInj::getMyBLPos()
-{
-	for (int i = 0; i < BLMAX; i++)
-	{
-		if (* getCID() == * (int *)(BLSTART + core.util.BaseAddress + i * BLSIZE))
-		{
-			return i;
-		}
-	}
-	return -1;
-}
-
-void TibiaInj::GoTo(int x, int y, int z)
-{
-	int blPos = getMyBLPos();
-	int gotoAddress = BLSTART + blPos * BLSIZE + WALKINGOFFSET + core.util.BaseAddress;
-	* (int *)(core.util.BaseAddress + Addresses::gotoX) = x;
-	* (int *)(core.util.BaseAddress + Addresses::gotoY) = y;
-	* (int *)(core.util.BaseAddress + Addresses::gotoZ) = z;
-	* (int *)(gotoAddress) = 1;
 }
