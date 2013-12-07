@@ -49,12 +49,8 @@ public:
 	// Methods
 	TibiaInj();
 	~TibiaInj();
-	void TestOutput();
 	void WriteStrToFile(char* file, char* text);
 	void WriteDwdToFile(char* file, DWORD dwd);
-
-	// Getter Methods
-	int* getExp();
 
 	// Class Instances
 	Core core;

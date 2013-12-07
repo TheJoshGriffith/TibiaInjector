@@ -16,6 +16,7 @@ public:
 	static const DWORD walkingOffset = 0x050;
 	static const DWORD blsize = 0xC0;
 	static const DWORD blmax = 1300;
+	static const DWORD exp = 0x03C2280;
 };
 #endif
 

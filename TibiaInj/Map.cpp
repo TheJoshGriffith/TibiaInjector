@@ -11,11 +11,6 @@ Map::Map(Core * core)
 	Coar = core;
 }
 
-Map::Map()
-{
-
-}
-
 Map::~Map()
 {
 

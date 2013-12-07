@@ -54,7 +54,6 @@ class BattleList
 {
 public:
 	// Constr
-	BattleList::BattleList(void);
 	BattleList::BattleList(Core * coar);
 
 	// Destr

@@ -3,8 +3,9 @@
 #include <Windows.h>
 #include <Psapi.h>
 
-Util::Util()
+Util::Util(Core * coar)
 {
+	core = coar;
 	BaseAddress = getBaseAddress();
 }
 

@@ -5,14 +5,10 @@ using namespace std;
 
 typedef Creature battleListType[1300];
 
-BattleList::BattleList(void)
-{
-	* battleList = *(battleListType*)(0x5AD478 + 0x400000);
-}
-
 BattleList::BattleList(Core * coar)
 {
 	core = coar;
+	* battleList = *(battleListType*)(0x5AD478 + 0x400000);
 }
 
 

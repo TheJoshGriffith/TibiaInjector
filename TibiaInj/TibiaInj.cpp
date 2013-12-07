@@ -37,7 +37,6 @@ TibiaInj::TibiaInj()
 {
 	core = Core();
 	WriteDwdToFile("C:\\Users\\Debug\\Desktop\\baseAddress.txt", Util::getBaseAddress());
-	TestOutput();
 }
 
 TibiaInj::~TibiaInj()
@@ -59,20 +58,4 @@ void TibiaInj::WriteDwdToFile(char* file, DWORD dwd)
 	ostr.open(file);
 	ostr << dwd;
 	ostr.close();
-}
-
-void TibiaInj::TestOutput()
-{
-	exp = getExp();
-	int* oldexp = getExp();
-	ofstream ostr;
-	ostr.open("C:\\Users\\Debug\\Desktop\\output.txt");
-	ostr << "Experience (exp): " << *exp << endl;
-	//ostr << bl.battleList[0].name << endl;
-	ostr.close();
-}
-
-int* TibiaInj::getExp()
-{
-	return (int *)(0x03C2280 + core.util.BaseAddress);
 }

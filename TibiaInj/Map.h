@@ -11,7 +11,6 @@ class Map
 {
 public:
 	Map::Map(Core *);
-	Map::Map();
 	Map::~Map();
 	Tile GetPlayerTile();
 	Tile *(tiles[2016]);

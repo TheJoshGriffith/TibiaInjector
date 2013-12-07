@@ -14,11 +14,11 @@ class Player
 {
 public:
 	Player::Player(Core * coar);
-	Player::Player(void);
 	Player::~Player(void);
 	void Player::GoTo(int x, int y, int z);
 	int Player::getMyBLPos();
 	int* Player::getCID();
+	int* Player::getExp();
 private:
 	Core * core;
 };

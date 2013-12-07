@@ -14,9 +14,9 @@ class Core
 public:
 	Core::Core(void);
 	Core::~Core(void);
-	Util util;
-	BattleList battleList;
-	Map map;
-	Player player;
+	Util * util;
+	BattleList * battleList;
+	Map * map;
+	Player * player;
 };
 #endif
