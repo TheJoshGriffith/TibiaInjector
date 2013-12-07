@@ -21,6 +21,7 @@
 
 #include <thread>
 #include <string>
+#include "BattleList.h"
 
 #ifndef TIBIA_BASE_ADDRESS
 #define TIBIA_BASE_ADDRESS 0x0400000
@@ -52,6 +53,8 @@ public:
 	TibiaInj();
 	~TibiaInj();
 	void TestOutput();
+	void WriteStrToFile(char* file, char* text);
+	void WriteDwdToFile(char* file, DWORD dwd);
 
 	// Getter Methods
 	int* getExp();
@@ -60,6 +63,9 @@ public:
 
 	// Setter Methods
 	void GoTo(int x, int y, int z);	
+
+	// Class Instances
+	BattleList bl;
 
 private:
 	

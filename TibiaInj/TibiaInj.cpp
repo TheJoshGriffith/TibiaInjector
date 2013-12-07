@@ -27,6 +27,7 @@
 #include <thread>
 #include <string>
 #include "BattleList.h"
+#include "Util.h"
 
 using namespace std;
 
@@ -38,7 +39,8 @@ UINT gotoZ = 0x557004;
 
 TibiaInj::TibiaInj()
 {
-	BattleList bl = BattleList();
+	WriteDwdToFile("C:\\Users\\Debug\\Desktop\\baseAddress.txt", Util::getBaseAddress());
+	bl = BattleList();
 	bl.DumpBattleList("C:\\Users\\Debug\\Desktop\\bloutput.txt");
 	TestOutput();
 	GoTo(32369, 32242, 6);
@@ -49,6 +51,22 @@ TibiaInj::~TibiaInj()
 
 }
 
+void TibiaInj::WriteStrToFile(char* file, char* text)
+{
+	ofstream ostr;
+	ostr.open(file);
+	ostr << text;
+	ostr.close();
+}
+
+void TibiaInj::WriteDwdToFile(char* file, DWORD dwd)
+{
+	ofstream ostr;
+	ostr.open(file);
+	ostr << dwd;
+	ostr.close();
+}
+
 void TibiaInj::TestOutput()
 {
 	exp = getExp();
@@ -57,6 +75,7 @@ void TibiaInj::TestOutput()
 	ostr.open("C:\\Users\\Debug\\Desktop\\output.txt");
 	ostr << "Experience (exp): " << *exp << endl;
 	ostr << "CID             : " << *getCID() << endl;
+	//ostr << bl.battleList[0].name << endl;
 	ostr.close();
 }
 

@@ -64,6 +64,5 @@ public:
 
 	// Variables
 	Creature *(battleList[1300]);
-
 };
 
