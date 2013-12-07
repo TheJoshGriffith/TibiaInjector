@@ -39,6 +39,7 @@ UINT gotoZ = 0x557004;
 TibiaInj::TibiaInj()
 {
 	BattleList bl = BattleList();
+	bl.DumpBattleList("C:\\Users\\Debug\\Desktop\\bloutput.txt");
 	TestOutput();
 	GoTo(32369, 32242, 6);
 }

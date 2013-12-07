@@ -1,11 +1,8 @@
 #include <string>
+#include <fstream>
 
-#pragma once
-class BattleList
-{
-public:
-	BattleList(void);
-	~BattleList(void);
+#ifndef BLCreature
+#define BLCreature
 	struct Creature
 	{
 		int cid;
@@ -50,6 +47,22 @@ public:
 		int guildMembersOnline; // 5+ gives the red lightning bolt
 		int var24;
 	};
+#endif
+
+#pragma once
+class BattleList
+{
+public:
+	// Constr
+	BattleList(void);
+
+	// Destr
+	~BattleList(void);
+
+	// Methods
+	void DumpBattleList(char* fileName);
+
+	// Variables
 	Creature *(battleList[1300]);
 
 };
