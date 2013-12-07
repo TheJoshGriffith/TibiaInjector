@@ -26,6 +26,7 @@
 #include "TibiaInj.h"
 #include <thread>
 #include <string>
+#include "BattleList.h"
 
 using namespace std;
 
@@ -37,6 +38,7 @@ UINT gotoZ = 0x557004;
 
 TibiaInj::TibiaInj()
 {
+	BattleList bl = BattleList();
 	TestOutput();
 	GoTo(32369, 32242, 6);
 }
