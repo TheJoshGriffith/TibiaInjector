@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Map.h"
 
 #define TIBIA_BASE_ADDRESS 0xF10000

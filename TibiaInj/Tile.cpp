@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Tile.h"
 
 void Tile::ReplaceGround(unsigned int id)
