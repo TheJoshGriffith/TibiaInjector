@@ -15,7 +15,7 @@ public:
 	~Core(void);
 	Util util;
 	BattleList battleList;
-	Map map;
-	Player player;
+	Map *map;
+	Player *player;
 };
 
