@@ -1,5 +1,7 @@
 #include "Item.h"
 
+#ifndef TileStruct
+#define TileStruct
 struct Tile
 {
 public:
@@ -10,3 +12,4 @@ public:
 	void ReplaceGround(unsigned int id);
 	//struct size = 0x198
 };
+#endif

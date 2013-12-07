@@ -22,10 +22,7 @@
 #include <thread>
 #include <string>
 #include "BattleList.h"
-
-#ifndef TIBIA_BASE_ADDRESS
-#define TIBIA_BASE_ADDRESS 0x0400000
-#endif // !TIBIA_BASE_ADDRESS
+#include "Util.h"
 
 #ifndef BLSIZE
 #define BLSIZE 0xC0
@@ -65,7 +62,7 @@ public:
 	void GoTo(int x, int y, int z);	
 
 	// Class Instances
-	BattleList bl;
+	Util util;
 
 private:
 	

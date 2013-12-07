@@ -1,3 +1,5 @@
+#ifndef ItemStruct
+#define ItemStruct
 struct Item
 {
 public:
@@ -9,3 +11,4 @@ public:
 
 	//The padding isn't actually just unknown stuff it contains some RGB shit and IsVisible, TODO
 };
+#endif

@@ -3,6 +3,16 @@
 #include <Windows.h>
 #include <Psapi.h>
 
+Util::Util()
+{
+	BaseAddress = getBaseAddress();
+}
+
+Util::~Util()
+{
+
+}
+
 DWORD Util::getBaseAddress() // Gets the base address of the first module. This is typically the client, never found it to be anything else.
 {
 	DWORD cbNeeded;

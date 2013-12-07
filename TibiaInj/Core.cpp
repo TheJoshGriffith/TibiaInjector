@@ -4,6 +4,9 @@
 
 Core::Core(void)
 {
+	util = Util();
+	battleList = BattleList(); 
+	map = Map();
 }
 
 

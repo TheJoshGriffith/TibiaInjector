@@ -24,9 +24,7 @@
 #include <Psapi.h>
 #include <fstream>
 #include "TibiaInj.h"
-#include <thread>
 #include <string>
-#include "BattleList.h"
 #include "Util.h"
 
 using namespace std;
@@ -39,9 +37,8 @@ UINT gotoZ = 0x557004;
 
 TibiaInj::TibiaInj()
 {
+	util = Util();
 	WriteDwdToFile("C:\\Users\\Debug\\Desktop\\baseAddress.txt", Util::getBaseAddress());
-	bl = BattleList();
-	bl.DumpBattleList("C:\\Users\\Debug\\Desktop\\bloutput.txt");
 	TestOutput();
 	GoTo(32369, 32242, 6);
 }
@@ -81,19 +78,19 @@ void TibiaInj::TestOutput()
 
 int* TibiaInj::getExp()
 {
-	return (int *)(0x03C2280 + TIBIA_BASE_ADDRESS);
+	return (int *)(0x03C2280 + util.BaseAddress);
 }
 
 int* TibiaInj::getCID()
 {
-	return (int *)(0x0557034 + TIBIA_BASE_ADDRESS);
+	return (int *)(0x0557034 + util.BaseAddress);
 }
 
 int TibiaInj::getMyBLPos()
 {
 	for (int i = 0; i < BLMAX; i++)
 	{
-		if (* getCID() == * (int *)(BLSTART + TIBIA_BASE_ADDRESS + i * BLSIZE))
+		if (* getCID() == * (int *)(BLSTART + util.BaseAddress + i * BLSIZE))
 		{
 			return i;
 		}
@@ -106,11 +103,11 @@ void TibiaInj::GoTo(int x, int y, int z)
 	ofstream ostr;
 	ostr.open("C:\\Users\\Debug\\Desktop\\memread.txt");
 	int blPos = getMyBLPos();
-	int gotoAddress = BLSTART + blPos * BLSIZE + WALKINGOFFSET + TIBIA_BASE_ADDRESS;
+	int gotoAddress = BLSTART + blPos * BLSIZE + WALKINGOFFSET + util.BaseAddress;
 	ostr << gotoAddress << endl;
-	* (int *)(TIBIA_BASE_ADDRESS + gotoX) = x;
-	* (int *)(TIBIA_BASE_ADDRESS + gotoY) = y;
-	* (int *)(TIBIA_BASE_ADDRESS + gotoZ) = z;
+	* (int *)(util.BaseAddress + gotoX) = x;
+	* (int *)(util.BaseAddress + gotoY) = y;
+	* (int *)(util.BaseAddress + gotoZ) = z;
 	* (int *)(gotoAddress) = 1;
 	ostr.close();
 }
