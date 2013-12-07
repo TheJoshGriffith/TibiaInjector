@@ -22,7 +22,7 @@
 #include <thread>
 #include <string>
 #include "BattleList.h"
-#include "Util.h"
+#include "Core.h"
 
 #ifndef BLSIZE
 #define BLSIZE 0xC0
@@ -62,7 +62,7 @@ public:
 	void GoTo(int x, int y, int z);	
 
 	// Class Instances
-	Util util;
+	Core core;
 
 private:
 	

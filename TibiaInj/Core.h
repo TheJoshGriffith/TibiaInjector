@@ -2,7 +2,6 @@
 
 #include "Util.h"
 #include "BattleList.h"
-#include "TibiaInj.h"
 #include "Map.h"
 #include "Tile.h"
 
