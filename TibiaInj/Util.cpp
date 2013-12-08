@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <Psapi.h>
 #include <fstream>
+#include "Core.h"
 
 Util::Util(Core * coar)
 {
@@ -13,7 +14,7 @@ Util::Util(Core * coar)
 
 Util::~Util()
 {
-
+	delete core;
 }
 
 DWORD Util::getBaseAddress() // Gets the base address of the first module. This is typically the client, never found it to be anything else.

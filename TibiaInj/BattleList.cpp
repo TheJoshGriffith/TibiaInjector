@@ -21,16 +21,16 @@ BattleList::BattleList(Core * coar)
 
 BattleList::~BattleList(void)
 {
+	delete core;
 }
 
 void BattleList::DumpBattleList(char* fileName)
 {
 	ofstream sw;
-	
 	sw.open(fileName);
 	for (int i = 0; i < 1300; i++)
 	{
-		sw << "CID: " << (*battleList)[i].cid << ". Name: " << (*battleList)[i].name << ". HPPC: " << (*battleList)[i].hpPc << endl; 
+		sw << "CID: " << battleList[i]->cid << ". Name: " << battleList[i]->name << ". HPPC: " << battleList[i]->hpPc << endl; 
 	}
 	sw.close();
 }

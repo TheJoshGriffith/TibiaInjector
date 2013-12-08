@@ -13,7 +13,7 @@ Player::Player(Core * coar)
 
 Player::~Player(void)
 {
-
+	delete core;
 }
 
 void Player::setOutfit()

@@ -6,14 +6,14 @@
 
 typedef Tile tileType[2016];
 
-Map::Map(Core * core)
+Map::Map(Core * coar)
 {
-	Coar = core;
+	core = coar;
 }
 
 Map::~Map()
 {
-
+	delete core;
 }
 
 Tile Map::GetPlayerTile()

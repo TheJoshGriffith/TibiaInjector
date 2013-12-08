@@ -6,7 +6,7 @@ class Core;
 class Util
 {
 public:
-	Util(Core * coar);
+	Util(Core *);
 	~Util();
 	DWORD getBaseAddress();
 	HWND getHwnd();

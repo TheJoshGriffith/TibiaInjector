@@ -16,6 +16,6 @@ public:
 	Tile *(tiles[2016]);
 	std::vector<Tile*> GetTiles();
 private:
-	Core * Coar;
+	Core * core;
 };
 #endif
