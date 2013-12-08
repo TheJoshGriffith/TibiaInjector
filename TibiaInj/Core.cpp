@@ -4,14 +4,10 @@
 
 Core::Core(void)
 {
-	Player plyr(this);
-	Util utl(this);
-	BattleList bl(this);
-	Map mp(this);
-	util = &utl;
-	battleList = &bl;
-	player = &plyr;
-	map = &mp;
+	util = &Util(this);
+	battleList = &BattleList(this);
+	player = &Player(this);
+	map = &Map(this);
 }
 
 Core::~Core(void)
