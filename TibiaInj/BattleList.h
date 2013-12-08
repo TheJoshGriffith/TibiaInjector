@@ -63,7 +63,7 @@ public:
 	void DumpBattleList(char* fileName);
 
 	// Variables
-	Creature *(battleList[1300]);
+	Creature *battleList[1300];
 
 private:
 	Core * core;

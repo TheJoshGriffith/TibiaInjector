@@ -1,5 +1,8 @@
 #include "stdafx.h"
 #include "BattleList.h"
+#include "Core.h"
+#define v1022
+#include "Addresses.h"
 
 using namespace std;
 
@@ -8,7 +11,11 @@ typedef Creature battleListType[1300];
 BattleList::BattleList(Core * coar)
 {
 	core = coar;
-	* battleList = *(battleListType*)(0x5AD478 + 0x400000);
+	for (int i = 0; i < Addresses::blmax; i++)
+	{
+		DWORD offset = i * Addresses::blsize;
+		battleList[i] = (Creature *)(Addresses::BLStart + core->util->BaseAddress + offset);
+	}
 }
 
 
