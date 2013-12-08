@@ -36,7 +36,8 @@ using namespace std;
 TibiaInj::TibiaInj()
 {
 	core = Core();
-	WriteDwdToFile("C:\\Users\\Debug\\Desktop\\baseAddress.txt", Util::getBaseAddress());
+	WriteDwdToFile("C:\\Users\\Debug\\Desktop\\baseAddress.txt", core.util->getBaseAddress());
+	//WriteHwndToFile("C:\\Users\\Debug\\Desktop\\baseAddress.txt", core.util->hwnd);
 }
 
 TibiaInj::~TibiaInj()

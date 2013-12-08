@@ -8,8 +8,11 @@ class Util
 public:
 	Util(Core * coar);
 	~Util();
-	static DWORD getBaseAddress();
+	DWORD getBaseAddress();
+	HWND getHwnd();
 	DWORD BaseAddress;
+	HWND hwnd;
+	HANDLE handle;
 	Core * core;
 };
 #endif

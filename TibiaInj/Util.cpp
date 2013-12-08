@@ -2,11 +2,13 @@
 #include "Util.h"
 #include <Windows.h>
 #include <Psapi.h>
+#include <fstream>
 
 Util::Util(Core * coar)
 {
 	core = coar;
 	BaseAddress = getBaseAddress();
+	getHwnd();
 }
 
 Util::~Util()
@@ -25,4 +27,24 @@ DWORD Util::getBaseAddress() // Gets the base address of the first module. This 
 		return (DWORD)hMods[0];
 	}
 	return 0;
+}
+
+HWND hwndtemp;
+
+BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam)
+{
+	DWORD pid;
+	GetWindowThreadProcessId(hwnd, &pid);
+	if (pid = GetCurrentProcessId())
+	{
+		hwndtemp = hwnd;
+	}
+	return 1;
+}
+
+
+HWND Util::getHwnd()
+{
+	EnumWindows(EnumWindowsProc, NULL);
+	return hwndtemp;
 }

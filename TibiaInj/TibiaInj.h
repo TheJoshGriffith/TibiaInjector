@@ -24,22 +24,6 @@
 #include "BattleList.h"
 #include "Core.h"
 
-#ifndef BLSIZE
-#define BLSIZE 0xC0
-#endif
-
-#ifndef BLSTART
-#define BLSTART 0x005AD478
-#endif
-
-#ifndef BLMAX
-#define BLMAX 1400
-#endif
-
-#ifndef WALKINGOFFSET
-#define WALKINGOFFSET 0x050
-#endif
-
 class TibiaInj
 {
 public:
