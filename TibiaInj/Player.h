@@ -13,12 +13,17 @@ struct PlayerMem
 class Player
 {
 public:
-	Player::Player(Core * coar);
-	Player::~Player(void);
+	Player(Core * coar);
+	~Player(void);
+	// Setters
 	void Player::GoTo(int x, int y, int z);
-	int Player::getMyBLPos();
+	void setOutfit();
+
+	// Getters
+	void Player::getMyBLPos();
 	int* Player::getCID();
 	int* Player::getExp();
+	int blPos;
 private:
 	Core * core;
 };

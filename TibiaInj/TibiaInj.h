@@ -27,9 +27,6 @@
 class TibiaInj
 {
 public:
-	// Variables
-	int* exp;
-
 	// Methods
 	TibiaInj();
 	~TibiaInj();
@@ -38,7 +35,6 @@ public:
 
 	// Class Instances
 	Core core;
-
 private:
 	
 };

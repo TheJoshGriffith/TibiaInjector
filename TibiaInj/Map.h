@@ -10,8 +10,8 @@ class Core;
 class Map
 {
 public:
-	Map::Map(Core *);
-	Map::~Map();
+	Map(Core *);
+	~Map();
 	Tile GetPlayerTile();
 	Tile *(tiles[2016]);
 	std::vector<Tile*> GetTiles();

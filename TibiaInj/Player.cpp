@@ -8,11 +8,17 @@
 Player::Player(Core * coar)
 {
 	core = coar;
+	getMyBLPos();
 }
 
 Player::~Player(void)
 {
 
+}
+
+void Player::setOutfit()
+{
+	//core->battleList->battleList[blPos].outfit = 100;
 }
 
 int* Player::getCID()
@@ -25,21 +31,19 @@ int* Player::getExp()
 	return (int *)(Addresses::exp + core->util->BaseAddress);
 }
 
-int Player::getMyBLPos()
+void Player::getMyBLPos()
 {
 	for (int i = 0; i < Addresses::blmax; i++)
 	{
 		if (* getCID() == * (int *)(Addresses::BLStart + core->util->BaseAddress + i * Addresses::blsize))
 		{
-			return i;
+			blPos = i;
 		}
 	}
-	return -1;
 }
 
 void Player::GoTo(int x, int y, int z)
 {
-	int blPos = getMyBLPos();
 	int gotoAddress = Addresses::BLStart + blPos * Addresses::blsize + Addresses::walkingOffset + core->util->BaseAddress;
 	* (int *)(core->util->BaseAddress + Addresses::gotoX) = x;
 	* (int *)(core->util->BaseAddress + Addresses::gotoY) = y;

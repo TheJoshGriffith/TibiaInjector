@@ -54,10 +54,10 @@ class BattleList
 {
 public:
 	// Constr
-	BattleList::BattleList(Core * coar);
+	BattleList(Core * coar);
 
 	// Destr
-	BattleList::~BattleList(void);
+	~BattleList(void);
 
 	// Methods
 	void DumpBattleList(char* fileName);
