@@ -12,9 +12,6 @@ public:
 	MessageHandler(Core * coar);
 	~MessageHandler(void);
 	SOCKET sock;
-    int iFamily;
-    int iType;
-    int iProtocol;
 	int port;
 	Core * core;
 	BOOL logging;

@@ -18,9 +18,6 @@ MessageHandler::MessageHandler(Core * coar)
 	logging = true;
 	core = coar;
 	sock = INVALID_SOCKET;
-	iFamily = AF_INET;
-	iType = SOCK_STREAM;
-	iProtocol = IPPROTO_TCP;
 	int iResult;
 	WSADATA wsaData = {0};
 	iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
@@ -30,7 +27,7 @@ MessageHandler::MessageHandler(Core * coar)
 			(LPCWSTR)"Your client may not be able to connect", NULL);
 	}
 
-	sock = socket(iFamily, iType, iProtocol);
+	sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 
 	if (sock == INVALID_SOCKET)
 	{
@@ -45,8 +42,6 @@ MessageHandler::MessageHandler(Core * coar)
 		closesocket(sock);
 		WSACleanup();
 	}
-
-
 }
 
 
