@@ -12,18 +12,18 @@ MessageHandler::MessageHandler(Core * coar)
 {
 	// Information for reading sockets
 	sockaddr_in service;
-    service.sin_family = AF_INET;
-    service.sin_addr.s_addr = inet_addr("127.0.0.1"); // BindTo IP
-    service.sin_port = htons(port); // BindTo Port
+	service.sin_family = AF_INET;
+	service.sin_addr.s_addr = inet_addr("127.0.0.1"); // BindTo IP
+	service.sin_port = htons(port); // BindTo Port
 	logging = true;
 	core = coar;
 	sock = INVALID_SOCKET;
-    iFamily = AF_INET;
-    iType = SOCK_STREAM;
-    iProtocol = IPPROTO_TCP;
+	iFamily = AF_INET;
+	iType = SOCK_STREAM;
+	iProtocol = IPPROTO_TCP;
 	int iResult;
 	WSADATA wsaData = {0};
-    iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+	iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
 	if (iResult != 0)
 	{
 		MessageBox(NULL, (LPCWSTR)"Error initialising WinSock",
@@ -42,9 +42,9 @@ MessageHandler::MessageHandler(Core * coar)
 	{
 		MessageBox(NULL, (LPCWSTR)"Error binding socket",
 			(LPCWSTR)WSAGetLastError(), NULL);
-        closesocket(sock);
-        WSACleanup();
-    }
+		closesocket(sock);
+		WSACleanup();
+	}
 
 
 }
@@ -54,10 +54,10 @@ MessageHandler::~MessageHandler(void)
 {
 	int iResult;
 	iResult = closesocket(sock);
-    if (iResult == SOCKET_ERROR)
+	if (iResult == SOCKET_ERROR)
 	{
 		MessageBox(NULL, (LPCWSTR)"Socket closed in error",
 			(LPCWSTR)WSAGetLastError(), NULL);
-    }
-    WSACleanup();
+	}
+	WSACleanup();
 }
