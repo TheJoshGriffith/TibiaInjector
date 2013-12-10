@@ -49,7 +49,6 @@ MessageHandler::MessageHandler(Core * coar)
 
 }
 
-
 MessageHandler::~MessageHandler(void)
 {
 	int iResult;

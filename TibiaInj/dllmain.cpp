@@ -39,7 +39,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 	{
 	case DLL_PROCESS_ATTACH:
 		{
-			TibiaInj tinj = TibiaInj();
+			Core core = Core();
 		}
 
 	case DLL_THREAD_ATTACH:
