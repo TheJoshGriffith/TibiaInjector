@@ -24,7 +24,7 @@
 #include <Windows.h>
 #include <Psapi.h>
 #include <fstream>
-#include "TibiaInj.h"
+#include "Core.h"
 
 
 
