@@ -21,16 +21,16 @@ TibiaInj.vcxproj.filters
     similar extensions under a specific node (for e.g. ".cpp" files are associated with the
     "Source Files" filter).
 
-TibiaInj.cpp
+Core.cpp
     This is the main DLL source file.
 
-	When created, this DLL does not export any symbols. As a result, it
-	will not produce a .lib file when it is built. If you wish this project
-	to be a project dependency of some other project, you will either need to
-	add code to export some symbols from the DLL so that an export library
-	will be produced, or you can set the Ignore Input Library property to Yes
-	on the General propert page of the Linker folder in the project's Property
-	Pages dialog box.
+	core.cpp is instantiated directly from DllMain, and contains instances of each of 
+	the additional classes available to it. That includes all information gathering and
+	all control classes. It stores a pointer to each of these classes, allowing singular 
+	instances to run, further to this each of the instantiated classes takes a parameter
+	of type * Core (pointer to core class). Passing in the core class to these 
+	constructors allows each individual class access to all public members of each 
+	instantiated class we have. 
 
 /////////////////////////////////////////////////////////////////////////////
 Other standard files:
